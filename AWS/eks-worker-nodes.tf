@@ -42,7 +42,7 @@ resource "aws_launch_configuration" "test" {
   ami                      = "ami-0a8e17334212f7052" # Ubuntu 16.04 LTS EBS-SSD
   instance_type            = "t2.micro"
   name_prefix              = "terraform-eks-test"
-  security_groups          = ["${aws_security_group.test.id}"]
+  security_groups          = ["${aws_security_group.test-node.id}"]
   associate_public_address = true
   
   # Run a remote provisioner on the instance after create it.
