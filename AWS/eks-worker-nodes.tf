@@ -49,7 +49,7 @@ data "aws_ami" "ubuntu" {
 
 # Launch Configuration with desirable AMI Ubuntu 16.04 
 resource "aws_launch_configuration" "test" {
-  ami                      = "ami-0a8e17334212f7052" # Ubuntu 16.04 LTS EBS-SSD
+  #ami                      = "ami-0a8e17334212f7052" # Ubuntu 16.04 LTS EBS-SSD
   instance_type            = "t2.micro"
   image_id                 = "${data.aws_ami.ubuntu.id}"
   name_prefix              = "terraform-eks-test"
