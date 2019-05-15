@@ -1,7 +1,7 @@
 # EKS Worker Nodes 
 
 # EC2 Security Group to network traffic
-resource "aws_security_group" "test" {
+resource "aws_security_group" "test-node" {
   name = "terraform-eks-test"
   description = "Security Group for Nodes"
   vpc_id = "${aws_vpc.test.id}"
