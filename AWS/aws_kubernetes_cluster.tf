@@ -1,13 +1,45 @@
   provider "aws" {
     region = "eu-west-3"
   }
-
-/*
-  resource "aws_subnet" "kubernetes" {
-    vpc_id = "${aws_vpc.kubernetes.id}"
-    availability_zone = "eu-west-3a"
+  
+  resource "aws_vpc" "test" {
+    cidr_block = "10.0.0.0/16"
+    tags = "${
+      map(
+      "Name", "terraform-eks-test-node",
+      "kubernetes.io/cluster/${var.cluster-name}", "shared",
+      )
+    }"
   }
-*/
+  
+  resource "aws_subnet" "kubernetes" {
+    availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
+    cidr_block        = "10.0.${count.index}.0/24"
+    vpc_id            = "${aws_vpc.test.id}"
+
+    tags = "${
+      map(
+      "Name", "terraform-eks-test-node",
+      "kubernetes.io/cluster/${var.cluster-name}", "shared",
+      )
+    }"
+  }
+
+  resource "aws_internet_gateway" "test" {
+    vpc_id = "${aws_vpc.demo.id}"
+    tags = {
+      Name = "terraform-eks-test"
+    }
+  }
+
+  resource "aws_route_table" "test" {
+    vpc_id = "${aws_vpc.test.id}"
+
+    route {
+      cidr_block = "0.0.0.0/0"
+      gateway_id = "${aws_internet_gateway.demo.id}"
+    }
+  }
 
   resource "aws_instance" "kube" {
     count = 3
