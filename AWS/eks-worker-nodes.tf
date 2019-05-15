@@ -13,6 +13,13 @@ resource "aws_security_group" "test-node" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  # Ingressing traffic 
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 # Security Group rule to ingress all traffic node to node
