@@ -45,6 +45,15 @@ resource "aws_launch_configuration" "test" {
   security_groups          = ["${aws_security_group.test.id}"]
   associate_public_address = true
   
+  # Run a remote provisioner on the instance after create it.
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get -y update",
+      "sudo apt-get -y install nginx",
+      "sudo service nginx start",
+    ]
+  }
+  
   lifecycle {
     create_before_destroy = true
   }
