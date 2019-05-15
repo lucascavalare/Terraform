@@ -37,8 +37,8 @@ resource "aws_security_group_rule" "test-cluster-ingress-workstation-https" {
   type              = "ingress"
 }
 
-resource "aws_cluster" "test" {
-  name     = "${aws_cluster.test.id}"
+resource "aws_eks_cluster" "test" {
+  name     = "${var.cluster-name}"
 
   vpc_config {
     security_group_ids = ["${aws_security_group.test-cluster.id}"]
