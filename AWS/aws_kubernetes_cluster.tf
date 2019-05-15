@@ -14,7 +14,7 @@
     }"
   }
   
-  resource "aws_subnet" "kubernetes" {
+  resource "aws_subnet" "test" {
     availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
     cidr_block        = "10.0.${count.index}.0/24"
     vpc_id            = "${aws_vpc.test.id}"
@@ -41,6 +41,11 @@
       cidr_block = "0.0.0.0/0"
       gateway_id = "${aws_internet_gateway.test.id}"
     }
+  }
+
+  resource "aws_route_table_association" "test" {
+    subnet_id      = "${aws_subnet.test.*.id[count.index]}"
+    route_table_id = "${aws_route_table.test.id}"
   }
 
   resource "aws_instance" "kube" {
