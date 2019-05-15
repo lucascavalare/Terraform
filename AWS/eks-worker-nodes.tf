@@ -28,10 +28,9 @@ resource "aws_security_group_rule" "test-node-ingress" {
 
 # Security Group rule to ingress node traffic from control plane cluster 
 resource "aws_security_group_rule" "test-node-ingress-cluster" {
-  description              = "Allow worker node to receive communication from control plane cluster"
   from_port                = 1025
   to_port                  = 65535
-  procotol                 = "tcp"
+  protocol                 = "tcp"
   security_group_id        = "${aws_security_group.test-node.id}"
   source_security_group_id = "${aws_security_group.test-cluster.id}"
   type                     = "ingress"
