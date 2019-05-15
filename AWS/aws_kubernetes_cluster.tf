@@ -26,7 +26,7 @@
   }
 
   resource "aws_internet_gateway" "test" {
-    vpc_id = "${aws_vpc.demo.id}"
+    vpc_id = "${aws_vpc.test.id}"
     tags = {
       Name = "terraform-eks-test"
     }
@@ -37,7 +37,7 @@
 
     route {
       cidr_block = "0.0.0.0/0"
-      gateway_id = "${aws_internet_gateway.demo.id}"
+      gateway_id = "${aws_internet_gateway.test.id}"
     }
   }
 
