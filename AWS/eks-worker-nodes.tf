@@ -37,11 +37,21 @@ resource "aws_security_group_rule" "test-node-ingress-cluster" {
   type                     = "ingress"
 }
 
+# Creating IMAGE_ID to launch_configuration 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-16.04-amd64-server-*"]
+  }
+}  
+
 # Launch Configuration with desirable AMI Ubuntu 16.04 
 resource "aws_launch_configuration" "test" {
   ami                      = "ami-0a8e17334212f7052" # Ubuntu 16.04 LTS EBS-SSD
   instance_type            = "t2.micro"
-  image_id                 = "${aws_launch_configuration.test.id}"
+  image_id                 = "${data.aws_ami.ubuntu.id}"
   name_prefix              = "terraform-eks-test"
   security_groups          = ["${aws_security_group.test-node.id}"]
   associate_public_address = true
