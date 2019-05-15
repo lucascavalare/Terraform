@@ -29,7 +29,7 @@ resource "aws_security_group_rule" "test-cluster-ingress-node-https" {
 
 # Security Group to allow workstation to communicate with the cluster API Server"
 resource "aws_security_group_rule" "test-cluster-ingress-workstation-https" {
-  cidr_blocks       = ["${local.workstation-external-cidr}"]
+  cidr_blocks       = ["0.0.0.0/0"]
   from_port         = 443
   protocol          = "tcp"
   security_group_id = "${aws_security_group.test-cluster.id}"
