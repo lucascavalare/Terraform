@@ -2,6 +2,11 @@
     region = "eu-west-3"
   }
 
+  variable "cluster-name" {
+    default = "terraform-eks-demo"
+    type    = "string"
+  }
+
   data "aws_availability_zones" "available" {}
 
   resource "aws_vpc" "test" {
