@@ -55,7 +55,7 @@ resource "aws_launch_configuration" "test" {
   image_id                 = "${data.aws_ami.ubuntu.id}"
   name_prefix              = "terraform-eks-test"
   security_groups          = ["${aws_security_group.test-node.id}"]
-  associate_public_address = true
+  associate_public_ip_address = true
   
   # Run a remote provisioner on the instance after create it.
   provisioner "remote-exec" {
