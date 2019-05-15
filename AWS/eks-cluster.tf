@@ -20,6 +20,16 @@ resource "aws_iam_role" "test-cluster" {
 POLICY
 }
 
+resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSClusterPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  role       = "${aws_iam_role.test-cluster.name}"
+}
+
+resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+  role       = "${aws_iam_role.test-cluster.name}"
+}
+
 # Security Group to Cluster do communicate with Nodes  
 resource "aws_security_group" "test-cluster" {
   name        = "terraform-eks-test-cluster"
