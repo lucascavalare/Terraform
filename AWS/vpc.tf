@@ -6,7 +6,7 @@ resource "aws_vpc" "test" {
 }
 
 # Creating Subnet
-resrouce "aws_subnet" "test" {
+resource "aws_subnet" "test" {
   availability_zone = "eu-west-3a"
   cidr_block = "10.0.${count.index}.0/24"
   vpc_id = "${aws_vpc.test.id}"
