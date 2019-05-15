@@ -60,7 +60,7 @@ resource "aws_launch_configuration" "test" {
 }
 
 # Auto Scaling Group to scale desired load capacity
-resource "aws_autoscaling_group" "test"
+resource "aws_autoscaling_group" "test" {
   desired_capacity     = 2
   launch_configuration = "${aws_launch_configuration.test.id}"
   max_size             = 2
