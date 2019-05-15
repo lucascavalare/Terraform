@@ -15,6 +15,10 @@ resource "aws_subnet" "test" {
 # Creating Internet Gateway 
 resource "aws_internet_gateway" "test" {
   vpc_id = "${aws_vpc.test.id}"
+
+# Creating Routing Table
+resource "aws_route_table" "test" {
+  vpc_id = "${aws_vpc.test.id}"
   
   route {
     cidr_block = "0.0.0.0/0"
