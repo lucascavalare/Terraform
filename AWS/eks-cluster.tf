@@ -44,3 +44,4 @@ resource "aws_eks_cluster" "test" {
     security_group_ids = ["${aws_security_group.test-cluster.id}"]
     subnet_ids         = ["${aws_subnet.test.*.id}"]
   }
+}
