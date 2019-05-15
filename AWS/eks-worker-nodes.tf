@@ -32,8 +32,8 @@ resource "aws_security_group_rule" "test-node-ingress-cluster" {
   from_port                = 1025
   to_port                  = 65535
   procotol                 = "tcp"
-  security_group_id        = "${aws_security_group.test.id}"
-  source_security_group_id = "${aws_security_group.test.id}"
+  security_group_id        = "${aws_security_group.test-node.id}"
+  source_security_group_id = "${aws_security_group.test-cluster.id}"
   type                     = "ingress"
 }
 
