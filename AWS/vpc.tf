@@ -15,6 +15,11 @@ resource "aws_subnet" "test" {
 # Creating Internet Gateway 
 resource "aws_internet_gateway" "test" {
   vpc_id = "${aws_vpc.test.id}"
+  
+  tags = {
+    Name = "terraform-eks-test"
+  }
+}
 
 # Creating Routing Table
 resource "aws_route_table" "test" {
