@@ -1,5 +1,25 @@
 # EKS Cluster Resources
 
+# Creating IAM Role to Cluster
+resource "aws_iam_role" "test-cluster" {
+  name = "terraform-eks-test-cluster"
+
+  assume_role_policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "eks.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+POLICY
+}
+
 # Security Group to Cluster do communicate with Nodes  
 resource "aws_security_group" "test-cluster" {
   name        = "terraform-eks-test-cluster"
@@ -39,7 +59,8 @@ resource "aws_security_group_rule" "test-cluster-ingress-workstation-https" {
 
 resource "aws_eks_cluster" "test" {
   name     = "${var.cluster-name}"
-
+  role_arn = "${aws_iam_role.test-cluster.arn}"
+  
   vpc_config {
     security_group_ids = ["${aws_security_group.test-cluster.id}"]
     subnet_ids         = ["${aws_subnet.test.id}"]
