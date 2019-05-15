@@ -21,8 +21,8 @@ resource "aws_security_group_rule" "test-node-ingress" {
   from_port                = 0
   to_port                  = 65535
   procotol                 = "-1"
-  security_group_id        = "${aws_security_group.test.id}"
-  source_security_group_id = "${aws_security_group.test.id}"
+  security_group_id        = "${aws_security_group.test-node.id}"
+  source_security_group_id = "${aws_security_group.test-node.id}"
   type                     = "ingress"
 }
 
