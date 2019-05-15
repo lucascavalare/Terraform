@@ -42,7 +42,7 @@ data "aws_ami" "ubuntu" {
   
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
     }
   owners = ["099720109477"] # Canonical
 }  
