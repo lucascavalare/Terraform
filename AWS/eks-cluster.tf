@@ -37,11 +37,11 @@ resource "aws_security_group_rule" "test-cluster-ingress-workstation-https" {
   type              = "ingress"
 }
 
-resource "aws_eks_cluster" "test" {
-  name     = "${aws_eks_cluster.test.id}"
+resource "aws_cluster" "test" {
+  name     = "${aws_cluster.test.id}"
 
   vpc_config {
     security_group_ids = ["${aws_security_group.test-cluster.id}"]
-    subnet_ids         = ["${aws_subnet.test.*.id}"]
+    subnet_ids         = ["${aws_subnet.test.id}"]
   }
 }
