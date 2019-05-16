@@ -1,9 +1,10 @@
-/*
+
 # Setting up Azure Provider
 provider "azurerm" {
-  version = "->1.5"
+  version = "->0.3"
 }
 
+/*
 # Provisioning with Terraform IAC
 terrarofm {
   backend "azurerm" {}
