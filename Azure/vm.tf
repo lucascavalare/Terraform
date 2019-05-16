@@ -42,7 +42,7 @@ resource "azurerm_virtual_machine" "testvm" {
         command = "./install-kubectl.sh"
         
         environment {
-          resource_group_name = "${resource_group_name.rg.id}"
-        #}
+          resource_group_name = "${azurerm_resource_group_name.rg.name}"
+        }
     }
 }
