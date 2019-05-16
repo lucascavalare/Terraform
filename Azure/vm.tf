@@ -22,11 +22,6 @@ resource "azurerm_virtual_machine" "testvm" {
     os_profile {
         computer_name  = "myvm"
         admin_username = "azureuser"
-    }
-
-    os_profile {
-        computer_name  = "hostname"
-        admin_username = "testadmin"
         admin_password = "Password1234!"
     }
     
