@@ -1,7 +1,7 @@
 
 # Setting up Azure Provider
 provider "azurerm" {
-  version = "->0.3"
+  #version = "~> 0.3"
 }
 
 /*
