@@ -1,3 +1,4 @@
+/*
 # Setting up Azure Provider
 provider "azurerm" {
   version = "->1.5"
@@ -7,4 +8,4 @@ provider "azurerm" {
 terrarofm {
   backend "azurerm" {}
 }
-
+*/
