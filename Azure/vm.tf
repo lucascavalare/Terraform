@@ -40,4 +40,9 @@ resource "azurerm_virtual_machine" "testvm" {
     
     provisioner "local-exec" {
         command = "./install-kubectl.sh"
+        
+        environment {
+          resource_group_name = "${resource_group_name.rg.id}"
+        #}
+    }
 }
