@@ -37,4 +37,7 @@ resource "azurerm_virtual_machine" "testvm" {
     tags {
         environment = "terraform"
     }
+    
+    provisioner "local-exec" {
+        command = "./install-kubectl.sh"
 }
