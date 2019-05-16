@@ -1,6 +1,6 @@
 resource "azurerm_network_security_group" "testsg" {
     name                = "myNetworkSecurityGroup"
-    location            = "easteurope"
+    location            = "westeurope"
     resource_group_name = "${azurerm_resource_group.rg.name}"
     
     security_rule {
