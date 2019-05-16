@@ -8,6 +8,6 @@ resource "azurerm_resource_group" "k8s" {
   
 resource "azurerm_resource_group" "rg" {
   name = "testResourceGroup"
-  location = "westeu"
+  location = "westeurope"
 }
  
