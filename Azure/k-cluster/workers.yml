@@ -1,7 +1,7 @@
 - hosts: master
-  remote_user: "{{ user }}"
-  ansible_become_pass: "{{ pass }}"
-  #become: yes
+  #remote_user: "{{ user }}"
+  #ansible_become_pass: "{{ pass }}"
+  become: yes
   gather_facts: false
   tasks:
     - name: get join command
