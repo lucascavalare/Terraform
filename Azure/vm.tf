@@ -10,7 +10,7 @@ resource "azurerm_virtual_machine" "testvm" {
         name              = "myOsDisk"
         caching           = "ReadWrite"
         create_option     = "FromImage"
-        managed_disk_type = "Premium_LRS"
+        managed_disk_type = "Standard_SSD"
     }
 
     storage_image_reference {
