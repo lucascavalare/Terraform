@@ -1,3 +1,11 @@
+/*
+Installs Docker, the container runtime.
+Installs apt-transport-https, allowing you to add external HTTPS sources to your APT sources list.
+Adds the Kubernetes APT repository's apt-key for key verification.
+Adds the Kubernetes APT repository to your remote servers' APT sources list.
+Installs kubelet and kubeadm.
+*/
+
 - hosts: "{{ host }}"
   remote_user: "{{ user }}"
   ansible_become_pass: "{{ pass }}"
