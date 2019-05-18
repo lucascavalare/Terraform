@@ -1,6 +1,7 @@
 # A Master with Node's IP and Ansible root User
 [masters]
-master ansible_host=master_ip ansible_user=root
+#master ansible_host=master_ip ansible_user=root
+137.117.216.163
 
 # Two Workers and Ansible root User
 [workers]
