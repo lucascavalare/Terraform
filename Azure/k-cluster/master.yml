@@ -1,7 +1,7 @@
 - hosts: master
-  remote_user: "{{ user }}"
-  ansible_become_pass: "{{ pass }}" 
-  #become: yes
+  #remote_user: "{{ user }}"
+  #ansible_become_pass: "{{ pass }}" 
+  become: yes
   tasks:
     - name: initialize the cluster
       shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
