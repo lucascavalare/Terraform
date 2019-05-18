@@ -5,8 +5,8 @@ master ansible_host=137.117.216.163 ansible_user=azureuser
 
 # Two Workers and Ansible root User
 [workers]
-worker1 ansible_host=worker_1_ip ansible_user=root
-worker2 ansible_host=worker_2_ip ansible_user=root
+worker1 ansible_host=137.117.216.163 ansible_user=root
+worker2 ansible_host=137.117.216.163 ansible_user=root
 
 # Python 3 for management operations
 [all:vars]
