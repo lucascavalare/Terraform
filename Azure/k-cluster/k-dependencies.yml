@@ -7,9 +7,9 @@ Installs kubelet and kubeadm.
 */
 
 - hosts: all
-  remote_user: "{{ user }}"
-  ansible_become_pass: "{{ pass }}"
-  #become: yes
+  #remote_user: "{{ user }}"
+  #ansible_become_pass: "{{ pass }}"
+  become: yes
   tasks:
    - name: install Docker
      apt:
