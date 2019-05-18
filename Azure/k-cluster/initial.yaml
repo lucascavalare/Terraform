@@ -1,7 +1,7 @@
 - hosts: all
-  remote_user: "{{ user }}"
-  ansible_become_pass: "{{ pass }}"
-  #become: yes # Commenting become to add User and Pass
+  #remote_user: "{{ user }}"
+  #ansible_become_pass: "{{ pass }}"
+  become: yes # Commenting become to add User and Pass
   tasks:
     - name: create the 'ubuntu' user
       user: name=ubuntu append=yes state=present createhome=yes shell=/bin/bash
@@ -12,7 +12,7 @@
         line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
         validate: 'visudo -cf %s'
   
-    #- name: set up authorized keys for the ubuntu user
-    #  authorized_key: user=ubuntu key="{{item}}"
-    #  with_file:
-    #    - ~/.ssh/id_rsa.pub
+    - name: set up authorized keys for the ubuntu user
+      authorized_key: user=ubuntu key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
