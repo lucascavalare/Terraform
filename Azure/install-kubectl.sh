@@ -4,8 +4,14 @@ echo "Updating..."
 sudo apt update
 #sudo apt install -y apt-transport-https
 
-sudo apt install ansible
-sudo apt install python3
+# Install Python 3
+sudo apt install -y python3
+# Install Ansible
+sudo apt install -y ansible
+
+# Generating SSH_KEY to Ansible deployment.
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
 
 # Install VirtualBox & Extension Packs
 #sudo apt install -y virtualbox virtualbox-ext-pack
