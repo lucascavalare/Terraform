@@ -1,11 +1,3 @@
-/*
-Installs Docker, the container runtime.
-Installs apt-transport-https, allowing you to add external HTTPS sources to your APT sources list.
-Adds the Kubernetes APT repository's apt-key for key verification.
-Adds the Kubernetes APT repository to your remote servers' APT sources list.
-Installs kubelet and kubeadm.
-*/
-
 - hosts: all
   #remote_user: "{{ user }}"
   #ansible_become_pass: "{{ pass }}"
@@ -29,9 +21,9 @@ Installs kubelet and kubeadm.
 
    - name: add Kubernetes' APT repository
      apt_repository:
-      repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
-      state: present
-      filename: 'kubernetes'
+       repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+       state: present
+       filename: 'kubernetes'
 
    - name: install kubelet
      apt:
