@@ -5,7 +5,7 @@ sudo apt update
 #sudo apt install -y apt-transport-https
 
 # Install Python 3
-sudo apt install -y python3
+#sudo apt install -y python3
 # Install Ansible
 sudo apt install -y ansible
 
