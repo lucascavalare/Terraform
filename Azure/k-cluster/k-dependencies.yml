@@ -6,9 +6,10 @@ Adds the Kubernetes APT repository to your remote servers' APT sources list.
 Installs kubelet and kubeadm.
 */
 
-- hosts: "{{ host }}"
-  remote_user: "{{ user }}"
-  ansible_become_pass: "{{ pass }}"
+- hosts: all
+  #remote_user: "{{ user }}"
+  #ansible_become_pass: "{{ pass }}"
+  become: yes
   tasks:
    - name: install Docker
      apt:
