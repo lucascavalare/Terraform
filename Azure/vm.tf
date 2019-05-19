@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "testvm" {
     name                  = "myVM${count.index}"
     location              = "westeurope"
     resource_group_name   = "${azurerm_resource_group.rg.name}"
-    network_interface_ids = ["${element(azurerm_network_interface.testnic.*.id, count.index)}"]
+    network_interface_ids = ["${azurerm_network_interface.testnic.id}"]
     #vm_size               = "Standard_DS1_v2"
     vm_size                = "Standard_D2_v3" # Allow Nested VM.
     delete_data_disks_on_termination = true
