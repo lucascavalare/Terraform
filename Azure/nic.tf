@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "testnic" {
-    #count               = 3
+    count               = 3
     name                = "myNIC${count.index}"
     location            = "westeurope"
     resource_group_name = "${azurerm_resource_group.rg.name}"
