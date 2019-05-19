@@ -1,12 +1,12 @@
 # A Master with Node's IP and Ansible root User
 [masters]
 #master ansible_host=master_ip ansible_user=root
-master ansible_host=40.118.45.107 ansible_user=azureuser
+master ansible_host=51.136.16.97 ansible_user=azureuser
 
 # Two Workers and Ansible root User
 [workers]
-worker1 ansible_host=40.118.44.21 ansible_user=azureuser
-worker2 ansible_host=40.118.47.179 ansible_user=azureuser
+worker1 ansible_host=51.136.16.105 ansible_user=azureuser
+worker2 ansible_host=51.136.16.73 ansible_user=azureuser
 
 # Python 3 for management operations
 [all:vars]
