@@ -20,12 +20,25 @@ resource "azurerm_network_security_group" "testsg" {
         priority                   = 1000
         direction                  = "Inbound"
         access                     = "Allow"
-        protocol                   = "Tcp"
+        protocol                   = "*"
         source_port_range          = "*"
-        destination_port_range     = "8080"
+        destination_port_range     = "80", "8080"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
     }
+    
+    security_rule {
+        name                       = "KUBE"
+        priority                   = 999
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "*"
+        source_port_range          = "*"
+        destination_port_range     = "30000", "65536"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+        
     tags {
         environment = "terraform"
     }
