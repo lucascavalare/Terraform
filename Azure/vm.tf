@@ -6,7 +6,9 @@ resource "azurerm_virtual_machine" "testvm" {
     network_interface_ids = ["${azurerm_network_interface.testnic.id}"]
     #vm_size               = "Standard_DS1_v2"
     vm_size                = "Standard_D2_v3" # Allow Nested VM.
-
+    delete_data_disks_on_termination = true
+    delete_os_disk_on_termination    = true
+    
     storage_os_disk {
         #count             = 3 
         name              = "myOsDisk${count.index}"
