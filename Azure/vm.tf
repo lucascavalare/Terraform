@@ -1,5 +1,6 @@
 resource "azurerm_virtual_machine" "testvm" {
-    name                  = "myVM"
+    count                 = 3
+    name                  = "myVM${count.index}"
     location              = "westeurope"
     resource_group_name   = "${azurerm_resource_group.rg.name}"
     network_interface_ids = ["${azurerm_network_interface.testnic.id}"]
@@ -7,7 +8,8 @@ resource "azurerm_virtual_machine" "testvm" {
     vm_size                = "Standard_D2_v3" # Allow Nested VM.
 
     storage_os_disk {
-        name              = "myOsDisk"
+        count             = 3 
+        name              = "myOsDisk${count.index}"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"
@@ -21,7 +23,7 @@ resource "azurerm_virtual_machine" "testvm" {
     }
     
     os_profile {
-        computer_name  = "myvm"
+        computer_name  = "myvm${count.index}"
         admin_username = "azureuser"
         admin_password = "Password1234!"
     }
