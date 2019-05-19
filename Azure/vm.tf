@@ -10,7 +10,6 @@ resource "azurerm_virtual_machine" "testvm" {
     delete_os_disk_on_termination    = true
     
     storage_os_disk {
-        count             = 3 
         name              = "myOsDisk${count.index}"
         caching           = "ReadWrite"
         create_option     = "FromImage"
