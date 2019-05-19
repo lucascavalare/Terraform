@@ -8,7 +8,7 @@ resource "azurerm_virtual_machine" "testvm" {
     vm_size                = "Standard_D2_v3" # Allow Nested VM.
 
     storage_os_disk {
-        count             = 3 
+        #count             = 3 
         name              = "myOsDisk${count.index}"
         caching           = "ReadWrite"
         create_option     = "FromImage"
