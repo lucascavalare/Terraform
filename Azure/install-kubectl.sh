@@ -1,16 +1,22 @@
 #!/bin/bash
 
-echo "Updating..."
-sudo apt update
+sudo cp /etc/kubernetes/admin.conf $HOME/
+sudo chown $(id -u):$(id -g) $HOME/admin.conf
+export KUBECONFIG=$HOME/admin.conf
+
+
+#echo "Updating..."
+#sudo apt update
 #sudo apt install -y apt-transport-https
+
 
 # Install Python 3
 #sudo apt install -y python3
 # Install Ansible
-sudo apt install -y ansible
+#sudo apt install -y ansible
 
 # Generating SSH_KEY to Ansible deployment.
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+#ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 
 # Install VirtualBox & Extension Packs
