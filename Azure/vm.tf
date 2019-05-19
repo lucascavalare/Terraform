@@ -53,7 +53,7 @@ resource "azurerm_virtual_machine" "testvm" {
 }
 
 data "azurerm_public_ip" "test" {
-  name                = "${azurerm_public_ip.pip.name}"
+  name                = "${azurerm_public_ip.testpublicip.name}"
   resource_group_name = "${azurerm_resource_group.rg.name}"
   depends_on          = ["azurerm_virtual_machine.testvm"]
 }
