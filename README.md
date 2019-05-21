@@ -11,4 +11,4 @@
       - Deploy VMs into AWS with Terraform. 
   
    <h1> AZURE </h1>
-      - Deploy Infrastructure in Azure with Terraform. Configure Kubernetes into the VMs with A Master and Two Nodes. 
+      - Deploy Infrastructure in Azure with Terraform. Configure Kubernetes into the VMs with One Master and Two Nodes. 
