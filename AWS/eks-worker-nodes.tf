@@ -24,7 +24,7 @@ resource "aws_iam_role_policy_attachment" "test-node-AmazonEKSWorkerNodePolicy" 
   role       = "${aws_iam_role.test-node.name}"
 }
 
-resource "aws_iam_role_policy_attachment" "demo-node-AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "test-node-AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = "${aws_iam_role.test-node.name}"
 }
@@ -34,9 +34,9 @@ resource "aws_iam_role_policy_attachment" "test-node-AmazonEC2ContainerRegistryR
   role       = "${aws_iam_role.test-node.name}"
 }
 
-resource "aws_iam_instance_profile" "demo-node" {
-  name = "terraform-eks-demo"
-  role = "${aws_iam_role.demo-node.name}"
+resource "aws_iam_instance_profile" "test-node" {
+  name = "terraform-eks-test"
+  role = "${aws_iam_role.test-node.name}"
 }
 
 # EC2 Security Group to network traffic
