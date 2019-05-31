@@ -15,3 +15,8 @@ resource "aws_s3_bucket" "terraform_state" {
     prevent_destroy = true
   }
 }
+
+# Print out ARN of your Bucket S3
+output "s3_bucket_arn" {
+  value = "${aws_s3_bucket.terraform_state.arn}"
+} 
