@@ -1,14 +1,16 @@
 # Terraform
   [Terraform](https://www.terraform.io/)
-    - Deploying IAC with Terraform Templates to Public Cloud Providers
+    - Deploying with Infrastructure-as-a-code (IAC) to Public Cloud Providers like Amazon Web Services and Azure.
 
 # Ansible 
   [Ansible](https://www.ansible.com/)
-    - Manage Infrastructure Deployments with Ansible
+    - Infrastructure Deployments and Management with Ansible. 
     
    
    ## AWS
-      - Deploy complete AWS (Network, Subnet, SG, AZ, EC2, ELB, S3) Infrastructure with Terraform. 
+      - Deploying a Complete Amazon Web Services (AWS) Infrastructure, including (VPC, Subnet, SG, AZ, EC2, ELB, S3) with Terraform and 
+        Managing those Deployments with Ansible.
   
    ## AZURE
-      - Deploy Infrastructure in Azure with Terraform and using Ansible to configure Kubernetes into Raw VMs with 1 Master and 2 Nodes. 
+      - Deploying a Complete Infrastructure in Azure with Terraform and Do use Ansible to Manage Deployment Configurations with Kubernetes
+        Including One Master and Two Nodes. 
