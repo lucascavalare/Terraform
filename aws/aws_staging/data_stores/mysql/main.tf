@@ -17,8 +17,8 @@ resource "aws_db_instance" "mysqldb" {
 data "terraform_remote_state" "db" {
   backend = "s3"
   config {
-    bucket = "(terraform_state)
-    key = "aws_staging/data-stores/mysql/terraform.tfstate"
+    bucket = "${var.db_remote_state_bucket}"
+    key = "${var.db_remote_state_key}"
     region = "eu-west-3"
   }
 }
