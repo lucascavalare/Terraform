@@ -25,7 +25,7 @@ resource "aws_launch_configuration" "example" {
 
 # Create SG to the instance. 
 resource "aws_security_group" "instance" { 
-  name = "terraform-example-instance" 
+  name = "${var.cluster_name}-instance" 
   ingress {
     from_port = "${var.server_port}" 
     to_port = "${var.server_port}" 
@@ -39,8 +39,8 @@ resource "aws_security_group" "instance" {
 
 # SG to ELB
 resource "aws_security_group" "elb" { 
-  name = "terraform-example-elb" 
-  ingress {
+  name = "${var.cluster_name}-elb" 
+  ingress { 
     from_port = 80
     to_port = 80
     protocol = "tcp" 
@@ -66,7 +66,7 @@ resource "aws_autoscaling_group" "example" {
 
 # Adding ELB to Balance Traffic.
 resource "aws_elb" "example" {
-  name = "terraform-asg-example"
+  name = "${var.cluster_name}-elb" 
   availability_zones = ["${data.aws_availability_zones.all.names}"]
   security_groups = ["${aws_security_group.elb.id}"]
   
