@@ -1,7 +1,7 @@
-*/
+/*
 Profile definition was removed due to the modules insertion and was migrated to 
 environment definition aws_staging/main.tf
-/*
+*/
 
 # Creating the S3 Bucket to store Terraform State.
 resource "aws_s3_bucket" "terraform_state" { 
