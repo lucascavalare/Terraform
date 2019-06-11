@@ -3,12 +3,7 @@ provider "aws" {
   region = "eu-west-3"
 }
 
-# Adding modules as contents. 
-module "webserver_cluster" {
-  source = "../modules"
-}
-
-# Input vars to web server.
+# Input vars to web server as module contents.
 module "webserver_cluster" {
 source = "../modules"
       cluster_name = "webservers-stageing"
