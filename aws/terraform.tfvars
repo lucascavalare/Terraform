@@ -5,5 +5,6 @@
 #   above the current terraform.tfvars file.
 
 terragrunt = {
-  include = "${find_in_parent_folders()}"
+  # # No need to wrap a single expression in interpolation
+  include = find_in_parent_folders()
 }
